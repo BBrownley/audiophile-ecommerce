@@ -6,6 +6,6 @@ const colors = {
   white500: "#F1F1F1",
   black700: "#000000",
   black600: "#101010"
-}
+};
 
-export default colors;
+export default { colors };
