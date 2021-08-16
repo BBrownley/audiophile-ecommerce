@@ -9,6 +9,7 @@ import Speakers from "./components/Speakers/Speakers";
 import Earphones from "./components/Earphones/Earphones";
 
 import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
@@ -29,6 +30,8 @@ function App() {
           <Route path="/earphones">
             <Earphones />
           </Route>
+
+          <Footer />
         </ThemeProvider>
       </Router>
     </div>

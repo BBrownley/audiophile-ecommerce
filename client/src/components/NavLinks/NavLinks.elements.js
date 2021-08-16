@@ -1,8 +1,6 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const Container = styled.div`
-  border: 1px dashed;
-  background: black;
   ul {
     display: flex;
     list-style-type: none;
@@ -32,6 +30,6 @@ export const Container = styled.div`
     }
   }
   @media (max-width: 800px) {
-    display: none;
+    display: ${props => (props.footer ? "inline-block" : "none")};
   }
 `;

@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 
 import { Container } from "./NavLinks.elements";
 
-export default function NavLinks() {
+export default function NavLinks({ footer }) {
   return (
-    <Container>
+    <Container footer={footer}>
       <ul>
         <li>
           <Link to="/">home</Link>

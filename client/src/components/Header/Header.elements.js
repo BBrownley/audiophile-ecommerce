@@ -21,12 +21,6 @@ export const Container = styled.div`
   }
 `;
 
-export const Logo = styled.div`
-  background: url(${logo});
-  height: 25px;
-  width: 143px;
-`;
-
 export const HeaderLeft = styled.div`
   display: flex;
   align-items: center;

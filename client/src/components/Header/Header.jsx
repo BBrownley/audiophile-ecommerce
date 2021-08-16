@@ -4,9 +4,10 @@ import useScreenWidth from "../../hooks/useScreenWidth";
 import NavLinks from "../NavLinks/NavLinks";
 import ShoppingCart from "../ShoppingCart/ShoppingCart";
 
+import Logo from "../shared/Logo";
+
 import {
   Container,
-  Logo,
   HeaderLeft,
   HamburgerIcon,
   MobileHeader
