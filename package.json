@@ -1,0 +1,22 @@
+{
+  "name": "audiophile-ecommerce",
+  "version": "1.0.0",
+  "description": "\"# audiophile-ecommerce\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BBrownley/audiophile-ecommerce.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BBrownley/audiophile-ecommerce/issues"
+  },
+  "homepage": "https://github.com/BBrownley/audiophile-ecommerce#readme",
+  "dependencies": {
+    "react-router-dom": "^5.2.0"
+  }
+}
