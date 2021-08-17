@@ -9,6 +9,6 @@ const LogoEl = styled.div`
   width: 143px;
 `;
 
-export default function Logo() {
-  return <LogoEl />;
+export default function Logo({ className }) {
+  return <LogoEl className={className} />;
 }

@@ -32,4 +32,27 @@ export const Container = styled.div`
   @media (max-width: 800px) {
     display: ${props => (props.footer ? "inline-block" : "none")};
   }
+  @media (max-width: 500px) {
+    ${props => {
+      if (props.footer) {
+        return css`
+          width: 100%;
+          ul {
+            flex-direction: column;
+            align-items: center;
+            li {
+              margin-bottom: 1rem;
+              a {
+                padding: 0;
+              }
+            }
+            li:first-of-type a,
+            li:last-of-type a {
+              padding: 0;
+            }
+          }
+        `;
+      }
+    }}
+  }
 `;

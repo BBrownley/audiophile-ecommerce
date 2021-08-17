@@ -12,8 +12,9 @@ export default function Footer() {
 
   return (
     <Container>
+      <div className="accent"></div>
       <div className="footer-top">
-        <Logo />
+        <Logo className="footer-top__logo" />
         <NavLinks footer />
       </div>
       <div className="footer-bottom">
@@ -24,13 +25,13 @@ export default function Footer() {
             to helping you get the most out of personal audio. Come and visit
             our demo facility - we’re open 7 days a week.
           </p>
-          {width > 800 && (
+          {width > 965 && (
             <p className="about__copyright">
               Copyright 2021. All Rights Reserved
             </p>
           )}
         </div>
-        {width > 800 && (
+        {width > 965 && (
           <Socials>
             <div className="icon-fb"></div>
             <div className="icon-twitter"></div>
@@ -39,15 +40,15 @@ export default function Footer() {
         )}
       </div>
 
-      {width <= 800 && (
-        <>
+      {width <= 965 && (
+        <div className="footer-bottom__tablet">
           <p>Copyright 2021. All Rights Reserved</p>
-          <Socials>
+          <Socials className="socials">
             <div className="icon-fb"></div>
             <div className="icon-twitter"></div>
             <div className="icon-instagram"></div>
           </Socials>
-        </>
+        </div>
       )}
     </Container>
   );
