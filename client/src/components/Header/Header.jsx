@@ -18,6 +18,7 @@ export default function Header() {
 
   return (
     <Container>
+      <div className="wrapper">
       {width > 400 && (
         <>
           <HeaderLeft>
@@ -37,6 +38,7 @@ export default function Header() {
           <ShoppingCart />
         </MobileHeader>
       )}
+      </div>
     </Container>
   );
 }
