@@ -2,9 +2,9 @@ import React from "react";
 
 import { Container, Category } from "./CategoryNavigation.elements";
 
-export default function CategoryNavigation() {
+export default function CategoryNavigation({ className }) {
   return (
-    <Container>
+    <Container className={className}>
       <div className="wrapper">
         <div className="category-nav__item">
           <div className="category-nav__item__img headphones"></div>

@@ -1,5 +1,7 @@
 .App {
   overflow: hidden;
+  position: relative;
+  padding-top: 5.5rem;
 }
 
 body {

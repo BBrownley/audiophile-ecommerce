@@ -14,7 +14,6 @@ export const Container = styled.div`
   color: white;
   position: relative;
   margin-top: -5.5rem;
-  z-index: -1;
 
   .wrapper {
     width: 100%;
