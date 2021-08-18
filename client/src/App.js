@@ -10,6 +10,7 @@ import Earphones from "./components/Earphones/Earphones";
 
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
+import { Wrapper } from "./components/shared/Wrapper.elements";
 
 function App() {
   return (
@@ -18,18 +19,20 @@ function App() {
         <ThemeProvider theme={theme}>
           <Header />
 
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route path="/headphones">
-            <Headphones />
-          </Route>
-          <Route path="/speakers">
-            <Speakers />
-          </Route>
-          <Route path="/earphones">
-            <Earphones />
-          </Route>
+          <Wrapper>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route path="/headphones">
+              <Headphones />
+            </Route>
+            <Route path="/speakers">
+              <Speakers />
+            </Route>
+            <Route path="/earphones">
+              <Earphones />
+            </Route>
+          </Wrapper>
 
           <Footer />
         </ThemeProvider>

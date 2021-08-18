@@ -98,10 +98,11 @@ button[class="secondary"]:hover {
 button[class="tertiary"] {
   width: 3.625rem;
   height: 1.125rem;
-  background-color: white;
+  background-color: transparent;
   color: #808080;
   transition: 0.125s ease color;
   position: relative;
+  margin-left: -0.75rem;
 }
 
 button[class="tertiary"]:hover {

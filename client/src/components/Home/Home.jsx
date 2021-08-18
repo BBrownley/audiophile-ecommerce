@@ -1,5 +1,11 @@
 import React from "react";
 
+import CategoryNavigation from "../CategoryNavigation/CategoryNavigation";
+
 export default function Home() {
-  return <div>home component</div>;
+  return (
+    <div>
+      <CategoryNavigation />
+    </div>
+  );
 }
