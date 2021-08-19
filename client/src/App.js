@@ -1,4 +1,7 @@
+import { useEffect } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
+
+import axios from "axios";
 
 import { ThemeProvider } from "styled-components";
 import theme from "./theme";
@@ -14,6 +17,11 @@ import Footer from "./components/Footer/Footer";
 import { Wrapper } from "./components/shared/Wrapper.elements";
 
 function App() {
+  useEffect(() => {
+    axios.get("http://localhost:1337/products").then(response => {
+      console.log(response);
+    });
+  }, []);
 
   return (
     <div className="App">
