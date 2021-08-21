@@ -8,9 +8,7 @@ import theme from "./theme";
 
 import Home from "./components/Home/Home";
 import Hero from "./components/Hero/Hero";
-import Headphones from "./components/Headphones/Headphones";
-import Speakers from "./components/Speakers/Speakers";
-import Earphones from "./components/Earphones/Earphones";
+import CategoryPage from "./components/CategoryPage/CategoryPage";
 
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
@@ -37,14 +35,8 @@ function App() {
             <Route exact path="/">
               <Home />
             </Route>
-            <Route path="/headphones">
-              <Headphones />
-            </Route>
-            <Route path="/speakers">
-              <Speakers />
-            </Route>
-            <Route path="/earphones">
-              <Earphones />
+            <Route path={["/headphones", "/speakers", "/earphones"]}>
+              <CategoryPage />
             </Route>
           </Wrapper>
 
