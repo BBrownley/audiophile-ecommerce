@@ -5,7 +5,7 @@ import { Container, CategoryHeader } from "./CategoryPage.elements";
 
 import apiService from "../../apiService";
 
-import PulseLoader from "react-spinners/PulseLoader";
+import ScaleLoader from "react-spinners/ScaleLoader";
 
 export default function CategoryPage() {
   const location = useLocation();
@@ -41,9 +41,11 @@ export default function CategoryPage() {
 
   return (
     <Container>
-      <CategoryHeader>{category}</CategoryHeader>
+      <CategoryHeader>
+        <h2>{category}</h2>
+      </CategoryHeader>
       <div>
-        {loading && <PulseLoader />}
+        {loading && <ScaleLoader />}
         {items.map(item => {
           return <div>{item.name}</div>;
         })}
