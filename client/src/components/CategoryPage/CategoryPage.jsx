@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
+import CategoryPageItem from "../CategoryPageItem/CategoryPageItem";
+
 import { Container, CategoryHeader } from "./CategoryPage.elements";
 
 import apiService from "../../apiService";
@@ -46,8 +48,8 @@ export default function CategoryPage() {
       </CategoryHeader>
       <div>
         {loading && <ScaleLoader />}
-        {items.map(item => {
-          return <div>{item.name}</div>;
+        {items.map((item, index) => {
+          return <CategoryPageItem item={item} index={index} key={index} />;
         })}
       </div>
     </Container>
