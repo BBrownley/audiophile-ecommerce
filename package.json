@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/BBrownley/audiophile-ecommerce#readme",
   "dependencies": {
+    "@emotion/react": "^11.4.1",
     "create-strapi-app": "^3.6.6",
     "qs": "^6.10.1",
     "react-router-dom": "^5.2.0",

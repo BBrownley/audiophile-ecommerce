@@ -1,6 +1,11 @@
 import React from "react";
 
-import { Container, ImageWrapper, ItemImage, ItemDetails } from "./CategoryPageItem.elements";
+import {
+  Container,
+  ImageWrapper,
+  ItemImage,
+  ItemDetails
+} from "./CategoryPageItem.elements";
 
 export default function CategoryPageItem({ item, index }) {
   let mobileImgUrl, tabletImgUrl, desktopImgUrl;
@@ -44,7 +49,7 @@ export default function CategoryPageItem({ item, index }) {
         ></ItemImage>
       </ImageWrapper>
 
-      <ItemDetails>
+      <ItemDetails index={index}>
         <div className="details-wrapper">
           {index === 0 && <p className="new-product">NEW PRODUCT</p>}
           <h2>{item.name}</h2>

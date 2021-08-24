@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { css } from "@emotion/react";
 
 import CategoryPageItem from "../CategoryPageItem/CategoryPageItem";
 
@@ -8,6 +9,14 @@ import { Container, CategoryHeader } from "./CategoryPage.elements";
 import apiService from "../../apiService";
 
 import ScaleLoader from "react-spinners/ScaleLoader";
+
+const spinnerOverride = css`
+  text-align: center;
+  height: 10rem;
+  margin-top: 0rem;
+  transform: scale(3);
+  padding-top: 3rem;
+`;
 
 export default function CategoryPage() {
   const location = useLocation();
