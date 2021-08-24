@@ -22,6 +22,14 @@ export const CategoryHeader = styled.div`
     transform: translate(-50%, -50%);
     padding-top: 1.5rem;
   }
+
+  @media (max-width: 350px) {
+    height: 13rem;
+    h2 {
+      font-size: 1.75rem;
+      padding-top: 2.5rem;
+    }
+  }
 `;
 
 export const StyledLoader = styled(ScaleLoader)`
