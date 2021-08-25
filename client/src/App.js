@@ -13,14 +13,9 @@ import CategoryPage from "./components/CategoryPage/CategoryPage";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import { Wrapper } from "./components/shared/Wrapper.elements";
+import SingleItemPage from "./components/SingleItemPage/SingleItemPage";
 
 function App() {
-  useEffect(() => {
-    axios.get("http://localhost:1337/products").then(response => {
-      console.log(response);
-    });
-  }, []);
-
   return (
     <div className="App">
       <Router>
@@ -37,6 +32,9 @@ function App() {
             </Route>
             <Route path={["/headphones", "/speakers", "/earphones"]}>
               <CategoryPage />
+            </Route>
+            <Route path="/item/:itemId">
+              <SingleItemPage />
             </Route>
           </Wrapper>
 

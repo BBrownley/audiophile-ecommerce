@@ -4,6 +4,9 @@ import { css } from "@emotion/react";
 
 import CategoryPageItem from "../CategoryPageItem/CategoryPageItem";
 
+import BestGear from "../BestGear/BestGear";
+import CategoryNavigation from "../CategoryNavigation/CategoryNavigation";
+
 import { Container, CategoryHeader } from "./CategoryPage.elements";
 
 import apiService from "../../apiService";
@@ -61,6 +64,8 @@ export default function CategoryPage() {
           return <CategoryPageItem item={item} index={index} key={index} />;
         })}
       </div>
+      <CategoryNavigation />
+      <BestGear />
     </Container>
   );
 }

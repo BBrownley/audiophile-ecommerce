@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import {
   Container,
@@ -54,7 +55,10 @@ export default function CategoryPageItem({ item, index }) {
           {index === 0 && <p className="new-product">NEW PRODUCT</p>}
           <h2>{item.name}</h2>
           <p>{item.description}</p>
-          <button>SEE PRODUCT</button>
+
+          <Link to={`/item/${item.id}`}>
+            <button>SEE PRODUCT</button>
+          </Link>
         </div>
       </ItemDetails>
     </Container>

@@ -13,8 +13,19 @@ const getAllFromCategory = async category => {
   }
 };
 
+// Get single item from ID
+const getItemById = async id => {
+  try {
+    const req = await axios.get(`${baseUrl}/products?id=${id}`);
+    return req.data[0];
+  } catch (exception) {
+    console.log(exception);
+  }
+};
+
 const apiService = {
-  getAllFromCategory
+  getAllFromCategory,
+  getItemById
 };
 
 export default apiService;
