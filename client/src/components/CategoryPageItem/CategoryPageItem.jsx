@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import parseImgFileName from "../../imgFileNameParser";
+
 import {
   Container,
   ImageWrapper,
@@ -9,37 +11,12 @@ import {
 } from "./CategoryPageItem.elements";
 
 export default function CategoryPageItem({ item, index }) {
-  let mobileImgUrl, tabletImgUrl, desktopImgUrl;
+  const itemImages = item.image;
 
-  item.image.forEach(image => {
-    // Each image's name ends with either -mobile, -tablet, or -desktop
-    // Search through the three images and assign the appropriate url
+  let { mobileImgUrl, tabletImgUrl, desktopImgUrl } = parseImgFileName(
+    itemImages
+  );
 
-    // e.g. image-product-mobile.jpg
-    const size = image.name
-      .split(".")[0]
-      .split("-")
-      .pop(); // mobile, tablet, or desktop
-
-    console.log(image);
-
-    switch (size) {
-      case "mobile":
-        mobileImgUrl = image.url;
-        break;
-      case "tablet":
-        tabletImgUrl = image.url;
-        break;
-      case "desktop":
-        desktopImgUrl = image.url;
-        break;
-      default:
-        console.error(
-          "Unable to parse image file name, or image was not found"
-        );
-        break;
-    }
-  });
   return (
     <Container index={index}>
       <ImageWrapper>
