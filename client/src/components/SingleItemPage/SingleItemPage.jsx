@@ -7,6 +7,7 @@ import {
   Main,
   ProductImg,
   ProductDetails,
+  Secondary,
   Features,
   IncludedItems,
   Quantity,
@@ -17,13 +18,19 @@ import apiService from "../../apiService";
 
 import parseImgFileName from "../../imgFileNameParser";
 
+import marked from "marked";
+
 const baseUrl = process.env.BASE_URL || "http://localhost:1337";
 
 export default function SingleItemPage() {
   const [loading, setLoading] = useState(true);
   const [item, setItem] = useState({
     name: null,
-    image: []
+    image: [],
+    features: "",
+    included_items: {
+      items: []
+    }
   });
 
   const [mobileImgUrl, setMobileImgUrl] = useState(null);
@@ -63,6 +70,9 @@ export default function SingleItemPage() {
       setDesktopImgUrl(desktopImgUrl);
     }
   }, [item]);
+
+  console.log(item.included_items.items);
+
   return (
     <Container>
       <div className="header-bkg"></div>
@@ -93,7 +103,7 @@ export default function SingleItemPage() {
                 <button
                   onClick={() =>
                     setQuantity(prevState => {
-                      if (prevState === 1) {
+                      if (prevState <= 1) {
                         return 1;
                       }
                       return prevState - 1;
@@ -112,6 +122,25 @@ export default function SingleItemPage() {
           </ProductDetails>
         </div>
       </Main>
+      <Secondary>
+        <Features>
+          <h3>Features</h3>
+          <div className="item-features">{item.features}</div>
+        </Features>
+        <IncludedItems>
+          <h3>In the box</h3>
+          <ul>
+            {item.included_items.items.map(item => {
+              return (
+                <li className="included-item">
+                  <span className="included-item__count">{item.count}x </span>
+                  <span className="included-item__name">{item.name}</span>
+                </li>
+              );
+            })}
+          </ul>
+        </IncludedItems>
+      </Secondary>
     </Container>
   );
 }

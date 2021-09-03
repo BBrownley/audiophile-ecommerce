@@ -70,8 +70,54 @@ export const ProductDetails = styled.div`
     margin-top: 3rem;
   }
 `;
-export const Features = styled.div``;
-export const IncludedItems = styled.div``;
+export const Secondary = styled.div`
+  display: flex;
+  margin-top: 5.5rem;
+  @media (max-width: 1100px) {
+    flex-direction: column;
+  }
+`;
+export const Features = styled.div`
+  flex: 7;
+  padding-right: 8.5rem;
+  .item-features {
+    white-space: pre-wrap;
+  }
+  @media (max-width: 1100px) {
+    padding-right: 0;
+  }
+`;
+export const IncludedItems = styled.div`
+  flex: 3;
+  ul {
+    list-style-type: none;
+    padding: 0;
+    .included-item {
+      margin-bottom: 0.75rem;
+      &__count {
+        font-weight: bold;
+        color: ${props => props.theme.colors.primary};
+        min-width: 1.5rem;
+        padding-right: 1rem;
+        display: inline-block;
+      }
+    }
+  }
+  @media (max-width: 1100px) {
+    display: flex;
+    width: 100%;
+    max-width: 34.5rem;
+    justify-content: space-between;
+    margin-top: 7.5rem;
+    h3,
+    ul {
+      margin-top: 0;
+    }
+  }
+  @media (max-width: 620px) {
+    flex-direction: column;
+  }
+`;
 export const Quantity = styled.div`
   display: flex;
   margin-top: 3rem;
