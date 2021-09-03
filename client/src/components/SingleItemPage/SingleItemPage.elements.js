@@ -72,4 +72,36 @@ export const ProductDetails = styled.div`
 `;
 export const Features = styled.div``;
 export const IncludedItems = styled.div``;
-export const Quantity = styled.div``;
+export const Quantity = styled.div`
+  display: flex;
+  margin-top: 3rem;
+`;
+export const Counter = styled.div`
+  display: flex;
+  height: 3rem;
+  margin-right: 1rem;
+  > * {
+    background: ${props => props.theme.colors.white500};
+    line-height: 3rem;
+  }
+  button {
+    color: #c4c4c4;
+    width: auto;
+    padding: 0 1.25rem;
+    &:hover {
+      background-color: ${props => props.theme.colors.white500};
+      color: ${props => props.theme.colors.primary};
+      transition: 0.25s;
+    }
+  }
+  .amount {
+    font-size: 0.8125rem;
+    font-weight: bold;
+    min-width: 1.5rem;
+    text-align: center;
+    &:hover {
+      cursor: default;
+      user-select: none;
+    }
+  }
+`;

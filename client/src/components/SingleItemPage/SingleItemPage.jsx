@@ -9,7 +9,8 @@ import {
   ProductDetails,
   Features,
   IncludedItems,
-  Quantity
+  Quantity,
+  Counter
 } from "./SingleItemPage.elements";
 
 import apiService from "../../apiService";
@@ -87,7 +88,27 @@ export default function SingleItemPage() {
             <p>
               <strong>${item.price}</strong>
             </p>
-            <Quantity></Quantity>
+            <Quantity>
+              <Counter>
+                <button
+                  onClick={() =>
+                    setQuantity(prevState => {
+                      if (prevState === 1) {
+                        return 1;
+                      }
+                      return prevState - 1;
+                    })
+                  }
+                >
+                  -
+                </button>
+                <div className="amount">{quantity}</div>
+                <button onClick={() => setQuantity(prevState => prevState + 1)}>
+                  +
+                </button>
+              </Counter>
+              <button>Add to cart</button>
+            </Quantity>
           </ProductDetails>
         </div>
       </Main>
