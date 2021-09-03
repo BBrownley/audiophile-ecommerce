@@ -18,6 +18,7 @@ import apiService from "../../apiService";
 
 import parseImgFileName from "../../imgFileNameParser";
 
+import Gallery from "../Gallery/Gallery";
 import Skeleton from "react-loading-skeleton";
 
 const baseUrl = process.env.BASE_URL || "http://localhost:1337";
@@ -30,7 +31,8 @@ export default function SingleItemPage() {
     features: "",
     included_items: {
       items: []
-    }
+    },
+    gallery: []
   });
 
   const [mobileImgUrl, setMobileImgUrl] = useState(null);
@@ -75,7 +77,7 @@ export default function SingleItemPage() {
     }
   }, [item]);
 
-  console.log(item.included_items.items);
+  console.log(item);
 
   return (
     <Container>
@@ -146,6 +148,7 @@ export default function SingleItemPage() {
           </ul>
         </IncludedItems>
       </Secondary>
+      <Gallery images={item.gallery} />
     </Container>
   );
 }
