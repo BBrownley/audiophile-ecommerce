@@ -35,7 +35,7 @@ export const GoBack = styled.div`
 `;
 export const Main = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   @media (max-width: 725px) {
     flex-direction: column;

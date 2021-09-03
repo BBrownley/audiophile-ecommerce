@@ -18,7 +18,7 @@ import apiService from "../../apiService";
 
 import parseImgFileName from "../../imgFileNameParser";
 
-import marked from "marked";
+import Skeleton from "react-loading-skeleton";
 
 const baseUrl = process.env.BASE_URL || "http://localhost:1337";
 
@@ -49,6 +49,10 @@ export default function SingleItemPage() {
   };
 
   useEffect(() => {
+    function timeout(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
     // Fetch product info on page render
     const fetchItem = async () => {
       const item = await apiService.getItemById(match.params.itemId);
@@ -77,7 +81,6 @@ export default function SingleItemPage() {
     <Container>
       <div className="header-bkg"></div>
       <GoBack onClick={goBack}>Go Back</GoBack>
-      {loading && <p>Loading...</p>}
       <Main>
         <ProductImg
           src={(() => {
@@ -93,10 +96,10 @@ export default function SingleItemPage() {
         />
         <div>
           <ProductDetails>
-            <h2>{item.name}</h2>
-            <p>{item.description}</p>
+            <h2>{item.name || <Skeleton />}</h2>
+            <p>{item.description || <Skeleton count={3} />}</p>
             <p>
-              <strong>${item.price}</strong>
+              <strong>${item.price || <Skeleton width={100} />}</strong>
             </p>
             <Quantity>
               <Counter>
@@ -125,7 +128,9 @@ export default function SingleItemPage() {
       <Secondary>
         <Features>
           <h3>Features</h3>
-          <div className="item-features">{item.features}</div>
+          <div className="item-features">
+            {item.features || <Skeleton count={10} />}
+          </div>
         </Features>
         <IncludedItems>
           <h3>In the box</h3>
