@@ -14,6 +14,9 @@ import {
   Counter
 } from "./SingleItemPage.elements";
 
+import CategoryNavigation from "../CategoryNavigation/CategoryNavigation";
+import BestGear from "../BestGear/BestGear";
+
 import apiService from "../../apiService";
 
 import parseImgFileName from "../../imgFileNameParser";
@@ -99,7 +102,7 @@ export default function SingleItemPage() {
         />
         <div>
           <ProductDetails>
-            <h2>{item.name || <Skeleton />}</h2>
+            <h2 className="item-name">{item.name || <Skeleton />}</h2>
             <p>{item.description || <Skeleton count={3} />}</p>
             <p>
               <strong>${item.price || <Skeleton width={100} />}</strong>
@@ -123,7 +126,7 @@ export default function SingleItemPage() {
                   +
                 </button>
               </Counter>
-              <button>Add to cart</button>
+              <button className="add-to-cart">Add to cart</button>
             </Quantity>
           </ProductDetails>
         </div>
@@ -153,6 +156,8 @@ export default function SingleItemPage() {
       {loading === false && (
         <SuggestedItems category={item.category} itemId={item.id} />
       )}
+      <CategoryNavigation />
+      <BestGear />
     </Container>
   );
 }

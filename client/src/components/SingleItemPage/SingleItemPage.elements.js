@@ -70,6 +70,12 @@ export const ProductDetails = styled.div`
     padding-left: 0;
     margin-top: 3rem;
   }
+
+  @media (max-width: 375px) {
+    .item-name {
+      font-size: 1.75rem;
+    }
+  }
 `;
 export const Secondary = styled.div`
   display: flex;
@@ -122,6 +128,12 @@ export const IncludedItems = styled.div`
 export const Quantity = styled.div`
   display: flex;
   margin-top: 3rem;
+
+  @media (max-width: 375px) {
+    .add-to-cart {
+      width: auto;
+    }
+  }
 `;
 export const Counter = styled.div`
   display: flex;
