@@ -29,7 +29,6 @@ const getSuggestedItems = async (category, currentItemId) => {
     const req = await axios.get(
       `${baseUrl}/products/suggested?category=${category}&itemId=${currentItemId}`
     );
-    console.log(req.data);
     return req.data;
   } catch (exception) {
     console.error(exception);

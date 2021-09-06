@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import ScrollToTop from "./hooks/ScrollToTop";
 
 import axios from "axios";
 
@@ -19,6 +20,7 @@ function App() {
   return (
     <div className="App">
       <Router>
+        <ScrollToTop />
         <ThemeProvider theme={theme}>
           <Header />
 

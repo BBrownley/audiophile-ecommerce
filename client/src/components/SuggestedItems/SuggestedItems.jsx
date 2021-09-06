@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { useWindowDimension } from "../../hooks/useWindowDimension";
 
 import apiService from "../../apiService";
+
+import { Container, Items, Item } from "./SuggestedItems.elements";
+
+const baseUrl = process.env.BASE_URL || "http://localhost:1337";
 
 /*
 
@@ -16,15 +22,42 @@ import apiService from "../../apiService";
 export default function SuggestedItems(props) {
   const [categoryName, setCategoryName] = useState(props.category.name);
   const [itemId, setItemId] = useState(props.itemId);
-  const [suggested, setSuggested] = useState(null);
+  const [suggested, setSuggested] = useState([]);
 
   useEffect(() => {
+    setCategoryName(props.category.name);
+    setItemId(props.itemId);
+
     const getSuggestedItems = async () => {
       const data = await apiService.getSuggestedItems(categoryName, itemId);
       setSuggested(data);
     };
     getSuggestedItems();
-  }, []);
+  }, [props]);
 
-  return <div></div>;
+  return (
+    <Container>
+      <h3>You may also like</h3>
+      <Items>
+        {suggested.map((item, index) => {
+          return (
+            <Item key={index}>
+              <img src={`${baseUrl}${item.image[0].url}`} />
+              <h5>
+                {
+                  item.name
+                    .toUpperCase()
+                    .split("HEADPHONES")[0]
+                    .split("EARPHONES")[0]
+                }
+              </h5>
+              <Link to={`/item/${item.id}`}>
+                <button>See product</button>
+              </Link>
+            </Item>
+          );
+        })}
+      </Items>
+    </Container>
+  );
 }

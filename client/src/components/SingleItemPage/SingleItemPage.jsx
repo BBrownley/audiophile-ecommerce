@@ -24,19 +24,21 @@ import SuggestedItems from "../SuggestedItems/SuggestedItems";
 
 const baseUrl = process.env.BASE_URL || "http://localhost:1337";
 
+const defaultItemState = {
+  name: null,
+  category: null,
+  id: null,
+  image: [],
+  features: "",
+  included_items: {
+    items: []
+  },
+  gallery: []
+};
+
 export default function SingleItemPage() {
   const [loading, setLoading] = useState(true);
-  const [item, setItem] = useState({
-    name: null,
-    category: null,
-    id: null,
-    image: [],
-    features: "",
-    included_items: {
-      items: []
-    },
-    gallery: []
-  });
+  const [item, setItem] = useState(defaultItemState);
 
   const [mobileImgUrl, setMobileImgUrl] = useState(null);
   const [tabletImgUrl, setTabletImgUrl] = useState(null);
@@ -54,19 +56,17 @@ export default function SingleItemPage() {
   };
 
   useEffect(() => {
-    function timeout(ms) {
-      return new Promise(resolve => setTimeout(resolve, ms));
-    }
-
     // Fetch product info on page render
     const fetchItem = async () => {
+      setLoading(true);
+      setItem(defaultItemState);
       const item = await apiService.getItemById(match.params.itemId);
       setItem(item);
       setLoading(false);
     };
 
     fetchItem();
-  }, []);
+  }, [window.location.href]);
 
   useEffect(() => {
     if (item !== null) {
@@ -138,9 +138,9 @@ export default function SingleItemPage() {
         <IncludedItems>
           <h3>In the box</h3>
           <ul>
-            {item.included_items.items.map(item => {
+            {item.included_items.items.map((item, index) => {
               return (
-                <li className="included-item">
+                <li className="included-item" key={index}>
                   <span className="included-item__count">{item.count}x </span>
                   <span className="included-item__name">{item.name}</span>
                 </li>
@@ -150,7 +150,9 @@ export default function SingleItemPage() {
         </IncludedItems>
       </Secondary>
       <Gallery images={item.gallery} />
-      {loading === false && <SuggestedItems category={item.category} itemId={item.id} />}
+      {loading === false && (
+        <SuggestedItems category={item.category} itemId={item.id} />
+      )}
     </Container>
   );
 }
