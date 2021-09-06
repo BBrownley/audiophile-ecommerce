@@ -9,7 +9,7 @@ const getAllFromCategory = async category => {
     const req = await axios.get(`${baseUrl}/products/category/${category}`);
     return req.data;
   } catch (exception) {
-    console.log(exception);
+    console.error(exception);
   }
 };
 
@@ -19,13 +19,27 @@ const getItemById = async id => {
     const req = await axios.get(`${baseUrl}/products?id=${id}`);
     return req.data[0];
   } catch (exception) {
-    console.log(exception);
+    console.error(exception);
+  }
+};
+
+// Returns three suggested items
+const getSuggestedItems = async (category, currentItemId) => {
+  try {
+    const req = await axios.get(
+      `${baseUrl}/products/suggested?category=${category}&itemId=${currentItemId}`
+    );
+    console.log(req.data);
+    return req.data;
+  } catch (exception) {
+    console.error(exception);
   }
 };
 
 const apiService = {
   getAllFromCategory,
-  getItemById
+  getItemById,
+  getSuggestedItems
 };
 
 export default apiService;

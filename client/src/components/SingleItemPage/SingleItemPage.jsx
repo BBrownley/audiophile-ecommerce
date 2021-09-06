@@ -20,6 +20,7 @@ import parseImgFileName from "../../imgFileNameParser";
 
 import Gallery from "../Gallery/Gallery";
 import Skeleton from "react-loading-skeleton";
+import SuggestedItems from "../SuggestedItems/SuggestedItems";
 
 const baseUrl = process.env.BASE_URL || "http://localhost:1337";
 
@@ -27,6 +28,8 @@ export default function SingleItemPage() {
   const [loading, setLoading] = useState(true);
   const [item, setItem] = useState({
     name: null,
+    category: null,
+    id: null,
     image: [],
     features: "",
     included_items: {
@@ -147,6 +150,7 @@ export default function SingleItemPage() {
         </IncludedItems>
       </Secondary>
       <Gallery images={item.gallery} />
+      {loading === false && <SuggestedItems category={item.category} itemId={item.id} />}
     </Container>
   );
 }
