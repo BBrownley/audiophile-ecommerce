@@ -50,6 +50,7 @@ export const ProductImg = styled.img`
   }
   @media (max-width: 725px) {
     width: 100%;
+    margin-right: auto;
   }
 `;
 export const ProductDetails = styled.div`

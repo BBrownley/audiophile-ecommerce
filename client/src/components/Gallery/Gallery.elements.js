@@ -11,6 +11,7 @@ const imgStyle = () => css`
 
 export const Container = styled.div`
   display: flex;
+  margin-top: 8rem;
 
   .gallery-img {
     border-radius: 0.5rem;
@@ -37,19 +38,71 @@ export const Container = styled.div`
     flex: 6;
     margin-left: 2rem;
   }
+
+  @media (max-width: 1000px) {
+    .side-image-wrapper {
+      &:first-of-type {
+        margin-bottom: 1.25rem;
+      }
+      &:last-of-type {
+        margin-top: 1.25rem;
+      }
+    }
+
+    .main-image-wrapper {
+      margin-left: 1.25rem;
+    }
+  }
+
+  @media (max-width: 700px) {
+    flex-direction: column;
+    margin-top: 4rem;
+    .side-image-wrapper {
+      padding-bottom: 53%;
+    }
+    .main-image-wrapper {
+      margin-left: 0;
+      margin-top: 1.25rem;
+      padding-bottom: 112%;
+    }
+  }
 `;
 
 export const Image1 = styled.div`
   background-image: url(${props => props.desktopImg});
   ${imgStyle()}
+
+  @media (max-width: 1000px) {
+    background-image: url(${props => props.tabletImg});
+  }
+
+  @media (max-width: 700px) {
+    background-image: url(${props => props.mobileImg});
+  }
 `;
 
 export const Image2 = styled.div`
   background-image: url(${props => props.desktopImg});
   ${imgStyle()}
+
+  @media (max-width: 1000px) {
+    background-image: url(${props => props.tabletImg});
+  }
+
+  @media (max-width: 700px) {
+    background-image: url(${props => props.mobileImg});
+  }
 `;
 
 export const ImageMain = styled.div`
   background-image: url(${props => props.desktopImg});
   ${imgStyle()}
+
+  @media (max-width: 1000px) {
+    background-image: url(${props => props.tabletImg});
+  }
+
+  @media (max-width: 700px) {
+    background-image: url(${props => props.mobileImg});
+  }
 `;

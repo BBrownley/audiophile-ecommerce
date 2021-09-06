@@ -77,8 +77,6 @@ export default function SingleItemPage() {
     }
   }, [item]);
 
-  console.log(item);
-
   return (
     <Container>
       <div className="header-bkg"></div>
