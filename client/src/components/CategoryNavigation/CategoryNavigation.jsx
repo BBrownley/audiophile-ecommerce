@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import { Container, Category } from "./CategoryNavigation.elements";
 
@@ -9,17 +10,23 @@ export default function CategoryNavigation({ className }) {
         <div className="category-nav__item">
           <div className="category-nav__item__img headphones"></div>
           <h6>Headphones</h6>
-          <button className="tertiary">Shop</button>
+          <Link to="/headphones">
+            <button className="tertiary">Shop</button>
+          </Link>
         </div>
         <div className="category-nav__item">
           <div className="category-nav__item__img speakers"></div>
           <h6>Speakers</h6>
-          <button className="tertiary">Shop</button>
+          <Link to="/speakers">
+            <button className="tertiary">Shop</button>
+          </Link>
         </div>
         <div className="category-nav__item">
           <div className="category-nav__item__img earphones"></div>
           <h6>Earphones</h6>
-          <button className="tertiary">Shop</button>
+          <Link to="/earphones">
+            <button className="tertiary">Shop</button>
+          </Link>
         </div>
       </div>
     </Container>

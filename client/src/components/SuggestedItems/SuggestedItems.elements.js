@@ -42,10 +42,12 @@ export const Item = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
   img {
     width: auto;
     max-width: 350px;
     height: 400px;
+    border-radius: .5rem;
   }
 
   @media (max-width: 1200px) {

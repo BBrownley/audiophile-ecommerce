@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import ScrollToTop from "./hooks/ScrollToTop";
 
@@ -17,12 +17,14 @@ import { Wrapper } from "./components/shared/Wrapper.elements";
 import SingleItemPage from "./components/SingleItemPage/SingleItemPage";
 
 function App() {
+  const headerRef = useRef();
+
   return (
     <div className="App">
       <Router>
         <ScrollToTop />
         <ThemeProvider theme={theme}>
-          <Header />
+          <Header ref={headerRef} />
 
           <Route exact path="/">
             <Hero />

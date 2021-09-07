@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import useScreenWidth from "../../hooks/useScreenWidth";
 
 import NavLinks from "../NavLinks/NavLinks";
@@ -17,6 +18,7 @@ import {
 
 export default function Header() {
   const width = useScreenWidth();
+  const location = useLocation();
 
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -27,6 +29,11 @@ export default function Header() {
   const toggleMobileMenu = () => {
     setMobileMenuOpen(prevState => !prevState);
   };
+
+  useEffect(() => {
+    console.log(location.pathname);
+    setMobileMenuOpen(false);
+  }, [location.pathname]);
 
   return (
     <Container>
