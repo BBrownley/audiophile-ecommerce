@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import ScrollToTop from "./hooks/ScrollToTop";
+import { CartContext } from "./CartContext";
 
 import axios from "axios";
 
@@ -17,14 +18,12 @@ import { Wrapper } from "./components/shared/Wrapper.elements";
 import SingleItemPage from "./components/SingleItemPage/SingleItemPage";
 
 function App() {
-  const headerRef = useRef();
-
   return (
     <div className="App">
       <Router>
         <ScrollToTop />
         <ThemeProvider theme={theme}>
-          <Header ref={headerRef} />
+          <Header />
 
           <Route exact path="/">
             <Hero />

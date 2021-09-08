@@ -1,6 +1,7 @@
 import styled, { css } from "styled-components";
 
 export const Container = styled.div`
+  z-index: 10000;
   ul {
     display: flex;
     list-style-type: none;

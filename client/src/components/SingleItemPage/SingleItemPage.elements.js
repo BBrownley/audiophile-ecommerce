@@ -1,4 +1,35 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const addItemToastAnim = keyframes`
+  0% {
+    opacity: 0;
+    bottom: -2rem;
+    left :0;
+  }
+
+  8% {
+    opacity: .9;
+    bottom: -3.25rem;
+  }
+
+  10% {
+    opacity: 1;
+    bottom: -3rem;
+  }
+
+  90% {
+    opacity: 1;
+    left: 0;
+    bottom: -3rem;
+  }
+
+  100% {
+    left: 2rem;
+    bottom: -3rem;
+    opacity: 0;
+  }
+  
+`;
 
 export const Container = styled.div`
   .header-bkg {
@@ -128,6 +159,19 @@ export const IncludedItems = styled.div`
 export const Quantity = styled.div`
   display: flex;
   margin-top: 3rem;
+
+  .add-to-cart {
+    position: relative;
+    &__toast {
+      position: absolute;
+      text-align: center;
+      color: white;
+      padding: 0.5rem;
+      background-color: ${props => props.theme.colors.green};
+      border-radius: 0.5rem;
+      animation: ${addItemToastAnim} 5s ease-in-out forwards;
+    }
+  }
 
   @media (max-width: 375px) {
     .add-to-cart {

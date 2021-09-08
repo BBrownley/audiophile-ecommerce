@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useRouteMatch, useHistory } from "react-router-dom";
+import { useCart, useCartUpdate } from "../../CartContext";
 import useScreenWidth from "../../hooks/useScreenWidth";
 import {
   Container,
@@ -48,10 +49,13 @@ export default function SingleItemPage() {
   const [desktopImgUrl, setDesktopImgUrl] = useState(null);
 
   const [quantity, setQuantity] = useState(1);
+  const [addingItem, setAddingItem] = useState(false);
 
   const match = useRouteMatch("/item/:itemId");
   const history = useHistory();
 
+  const cartItems = useCart();
+  const updateCart = useCartUpdate();
   const width = useScreenWidth();
 
   const goBack = () => {
@@ -70,6 +74,33 @@ export default function SingleItemPage() {
 
     fetchItem();
   }, [window.location.href]);
+
+  const delay = ms => {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => resolve(), ms);
+    });
+  };
+
+  const addToCart = async () => {
+    if (addingItem) return; // debounce
+
+    // Get relevant details of the item for cart addition
+    const { id, name, price, image } = item;
+    const itemToBeAdded = { id, name, price, image: image[2], quantity };
+
+    // Update context, sync with local storage
+    updateCart([...cartItems, itemToBeAdded]);
+
+    if (!localStorage.getItem("cart")) {
+      localStorage.setItem("cart", [itemToBeAdded]);
+    } else {
+      localStorage.setItem("cart", [...cartItems, itemToBeAdded]);
+    }
+
+    setAddingItem(true);
+    await delay(5000);
+    setAddingItem(false);
+  };
 
   useEffect(() => {
     if (item !== null) {
@@ -126,7 +157,17 @@ export default function SingleItemPage() {
                   +
                 </button>
               </Counter>
-              <button className="add-to-cart">Add to cart</button>
+              <div className="add-to-cart">
+                <button
+                  className="add-to-cart__btn"
+                  onClick={() => addToCart()}
+                >
+                  Add to cart
+                </button>
+                {addingItem && (
+                  <div className="add-to-cart__toast">Item added!</div>
+                )}
+              </div>
             </Quantity>
           </ProductDetails>
         </div>

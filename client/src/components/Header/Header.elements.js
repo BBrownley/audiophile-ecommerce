@@ -64,6 +64,7 @@ export const Container = styled.div`
 export const HeaderLeft = styled.div`
   display: flex;
   align-items: center;
+  z-index: 10000;
 `;
 
 export const HamburgerIcon = styled.div`

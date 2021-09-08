@@ -1,5 +1,7 @@
 import styled, { keyframes } from "styled-components";
 
+import cart from "../../assets/shared/desktop/icon-cart.svg";
+
 const fadeInBkg = keyframes`
   0% {
     opacity: .05;
@@ -47,6 +49,25 @@ const fadeInMainReg = keyframes`
   }
 `;
 
+export const Container = styled.div`
+  margin-left: 120px;
+  @media (max-width: 1050px) {
+    margin-left: 4rem;
+  }
+  @media (max-width: 925px) {
+    margin-left: 2rem;
+  }
+`;
+
+export const CartIcon = styled.div`
+  background: url(${cart});
+  height: 20px;
+  width: 23px;
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
 export const Background = styled.div`
   position: fixed;
   top: 0rem;
@@ -64,8 +85,6 @@ export const Background = styled.div`
   }
 `;
 export const Main = styled.div`
-  height: 20rem;
-  width: 20rem;
   position: fixed;
   z-index: 2000;
   top: 7.5rem;
@@ -73,21 +92,48 @@ export const Main = styled.div`
   opacity: 0;
   background: white;
   border-radius: 0.5rem;
+
+  padding: 2rem;
+  width: 19.5rem;
+
+  display: none;
+  flex-direction: column;
+
+  > * {
+    margin-bottom: 2rem;
+  }
+
+  h6,
+  p {
+    margin: 0;
+  }
+
+  button {
+    width: auto;
+    margin-bottom: 0;
+  }
+
   &.fade-in-main {
+    display: flex;
     animation: ${fadeInMainLg} 0.35s ease-out forwards;
     @media (max-width: 1700px) {
       animation: ${fadeInMainReg} 0.35s ease-out forwards;
     }
   }
-`;
 
-export const MainWrapper = styled.div`
-  position: absolute;
-  max-width: 1600px;
-  margin: 0 auto;
-  left: 0;
-  right: 0%;
-  height: 1rem;
-  width: 100%;
-  border: 2px cyan;
+  .cart-header,
+  .cart-total {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .cart-header {
+    .remove-all {
+      text-decoration: underline;
+      color: #909090;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
 `;

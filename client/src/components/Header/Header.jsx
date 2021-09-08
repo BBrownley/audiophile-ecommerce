@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import useScreenWidth from "../../hooks/useScreenWidth";
-
-import Cart from "../Cart/Cart";
 import NavLinks from "../NavLinks/NavLinks";
-import ShoppingCartIcon from "../ShoppingCartIcon/ShoppingCartIcon";
+import ShoppingCartIcon from "../ShoppingCart/ShoppingCart";
 import CategoryNavigation from "../CategoryNavigation/CategoryNavigation";
 
 import Logo from "../shared/Logo";
@@ -79,10 +77,6 @@ export default function Header() {
         className={`close-menu ${!mobileMenuOpen && "closed"}`}
         onClick={closeMobileMenu}
       ></div>
-
-      {cartOpen && (
-        <Cart handleClose={() => setCartOpen(false)} cartOpen={cartOpen} />
-      )}
     </Container>
   );
 }
