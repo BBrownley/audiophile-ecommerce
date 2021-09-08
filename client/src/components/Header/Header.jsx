@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import useScreenWidth from "../../hooks/useScreenWidth";
 
+import Cart from "../Cart/Cart";
 import NavLinks from "../NavLinks/NavLinks";
-import ShoppingCart from "../ShoppingCart/ShoppingCart";
+import ShoppingCartIcon from "../ShoppingCartIcon/ShoppingCartIcon";
 import CategoryNavigation from "../CategoryNavigation/CategoryNavigation";
 
 import Logo from "../shared/Logo";
@@ -21,6 +22,7 @@ export default function Header() {
   const location = useLocation();
 
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [cartOpen, setCartOpen] = useState(true);
 
   const closeMobileMenu = () => {
     setMobileMenuOpen(false);
@@ -30,8 +32,11 @@ export default function Header() {
     setMobileMenuOpen(prevState => !prevState);
   };
 
+  const toggleCartOpen = () => {
+    setCartOpen(prevState => !prevState);
+  };
+
   useEffect(() => {
-    console.log(location.pathname);
     setMobileMenuOpen(false);
   }, [location.pathname]);
 
@@ -46,7 +51,11 @@ export default function Header() {
             </HeaderLeft>
 
             <NavLinks />
-            <ShoppingCart />
+            <ShoppingCartIcon
+              toggleCartOpen={toggleCartOpen}
+              cartOpen={cartOpen}
+              handleClose={() => setCartOpen(false)}
+            />
           </>
         )}
 
@@ -54,7 +63,11 @@ export default function Header() {
           <MobileHeader>
             <HamburgerIcon onClick={toggleMobileMenu} />
             <Logo />
-            <ShoppingCart />
+            <ShoppingCartIcon
+              toggleCartOpen={toggleCartOpen}
+              cartOpen={cartOpen}
+              handleClose={() => setCartOpen(false)}
+            />
           </MobileHeader>
         )}
       </div>
@@ -66,6 +79,10 @@ export default function Header() {
         className={`close-menu ${!mobileMenuOpen && "closed"}`}
         onClick={closeMobileMenu}
       ></div>
+
+      {cartOpen && (
+        <Cart handleClose={() => setCartOpen(false)} cartOpen={cartOpen} />
+      )}
     </Container>
   );
 }

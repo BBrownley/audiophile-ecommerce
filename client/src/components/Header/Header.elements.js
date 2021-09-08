@@ -11,6 +11,10 @@ export const Container = styled.div`
   right: 0;
   z-index: 1;
 
+  > * {
+    z-index: 10000;
+  }
+
   .close-menu {
     position: absolute;
     left: -2.5rem;

@@ -16,4 +16,7 @@ export const CartIcon = styled.div`
   background: url(${cart});
   height: 20px;
   width: 23px;
+  &:hover {
+    cursor: pointer;
+  }
 `;
