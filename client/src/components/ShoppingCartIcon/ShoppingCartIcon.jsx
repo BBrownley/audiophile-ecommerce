@@ -16,12 +16,11 @@ export default function ShoppingCartIcon({
         onClick={handleClose}
         className={cartOpen ? "fade-in-bkg" : ""}
       ></Background>
-      <MainWrapper>
-        <Main
-          onClick={e => e.stopPropagation()}
-          className={cartOpen ? "fade-in-main" : ""}
-        ></Main>
-      </MainWrapper>
+
+      <Main
+        onClick={e => e.stopPropagation()}
+        className={cartOpen ? "fade-in-main" : ""}
+      ></Main>
     </Container>
   );
 }

@@ -10,14 +10,39 @@ const fadeInBkg = keyframes`
   }
 `;
 
-const fadeInMain = keyframes`
+const fadeInMainLg = keyframes`
   0% {
-    right: -10rem;
+    right: 50%;
+    transform: translateX(56.5rem);
     opacity: 0;
   }
 
+  70% {
+    right: 50%;
+    transform: translateX(49.5rem);
+    opacity: .9;
+  }
+
   100% {
-    right: 0rem;
+    right: 50%;
+    transform: translateX(50rem);
+    opacity: 1;
+  }
+`;
+
+const fadeInMainReg = keyframes`
+  0% {
+    right: -3rem;
+    opacity: 0;
+  }
+
+  70% {
+    right: 3rem;
+    opacity: .9;
+  }
+
+  100% {
+    right: 2.5rem;
     opacity: 1;
   }
 `;
@@ -41,15 +66,18 @@ export const Background = styled.div`
 export const Main = styled.div`
   height: 20rem;
   width: 20rem;
-  position: absolute;
+  position: fixed;
   z-index: 2000;
-  top: 4rem;
-  right: 0;
+  top: 7.5rem;
+  right: 0rem;
   opacity: 0;
   background: white;
   border-radius: 0.5rem;
   &.fade-in-main {
-    animation: ${fadeInMain} 0.35s ease forwards;
+    animation: ${fadeInMainLg} 0.35s ease-out forwards;
+    @media (max-width: 1700px) {
+      animation: ${fadeInMainReg} 0.35s ease-out forwards;
+    }
   }
 `;
 
