@@ -34,6 +34,23 @@ export const Container = styled.div`
     }
   }
 
+  .cart {
+    position: relative;
+    &__count {
+      position: absolute;
+      color: black;
+      background: white;
+      border-radius: 2rem;
+      text-align: center;
+      right: -1rem;
+      top: -1rem;
+      user-select: none;
+      pointer-events: none;
+      min-width: 1.375rem;
+      font-weight: bold;
+    }
+  }
+
   .wrapper {
     border-bottom: 1px solid #434343;
     display: flex;

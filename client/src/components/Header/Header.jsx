@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { useCart } from "../../CartContext";
 import useScreenWidth from "../../hooks/useScreenWidth";
 import NavLinks from "../NavLinks/NavLinks";
 import ShoppingCartIcon from "../ShoppingCart/ShoppingCart";
@@ -21,6 +22,8 @@ export default function Header() {
 
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [cartOpen, setCartOpen] = useState(true);
+
+  const cart = useCart();
 
   const closeMobileMenu = () => {
     setMobileMenuOpen(false);
@@ -49,11 +52,16 @@ export default function Header() {
             </HeaderLeft>
 
             <NavLinks />
-            <ShoppingCartIcon
-              toggleCartOpen={toggleCartOpen}
-              cartOpen={cartOpen}
-              handleClose={() => setCartOpen(false)}
-            />
+            <div className="cart">
+              <ShoppingCartIcon
+                toggleCartOpen={toggleCartOpen}
+                cartOpen={cartOpen}
+                handleClose={() => setCartOpen(false)}
+              />
+              {cart.length > 0 && (
+                <span className="cart__count">{cart.length}</span>
+              )}
+            </div>
           </>
         )}
 
@@ -61,11 +69,14 @@ export default function Header() {
           <MobileHeader>
             <HamburgerIcon onClick={toggleMobileMenu} />
             <Logo />
-            <ShoppingCartIcon
-              toggleCartOpen={toggleCartOpen}
-              cartOpen={cartOpen}
-              handleClose={() => setCartOpen(false)}
-            />
+            <div className="cart">
+              <ShoppingCartIcon
+                toggleCartOpen={toggleCartOpen}
+                cartOpen={cartOpen}
+                handleClose={() => setCartOpen(false)}
+              />{" "}
+              <span className="cart__count">{cart.length}</span>
+            </div>
           </MobileHeader>
         )}
       </div>
