@@ -92,12 +92,17 @@ export default function SingleItemPage() {
     updateCart([...cartItems, itemToBeAdded]);
 
     if (!localStorage.getItem("cart")) {
-      localStorage.setItem("cart", [itemToBeAdded]);
+      localStorage.setItem("cart", JSON.stringify([itemToBeAdded]));
     } else {
-      localStorage.setItem("cart", [...cartItems, itemToBeAdded]);
+      localStorage.setItem(
+        "cart",
+        JSON.stringify([...cartItems, itemToBeAdded])
+      );
     }
 
     setAddingItem(true);
+    console.log(cartItems);
+    setQuantity(1);
     await delay(5000);
     setAddingItem(false);
   };

@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { useCart } from "../../CartContext";
+import { useCart, useCartUpdate } from "../../CartContext";
 
 import { Container, CartIcon, Background, Main } from "./ShoppingCart.elements";
 
@@ -9,11 +9,13 @@ export default function ShoppingCart({
   handleClose
 }) {
   const items = useCart();
+  const updateCart = useCartUpdate();
 
-  const removeAllItems = () => {};
+  const removeAllItems = () => {
+    updateCart([]);
+    localStorage.setItem("cart", JSON.stringify([]));
+  };
   const increaseItemQuantity = () => {};
-
-  console.log(items);
 
   return (
     <Container>
@@ -28,10 +30,16 @@ export default function ShoppingCart({
         className={cartOpen ? "fade-in-main" : ""}
       >
         <div className="cart-header">
-          <h6>Cart (3)</h6>
-          <span className="remove-all">Remove all</span>
+          <h6>Cart ({items.length})</h6>
+          <span className="remove-all" onClick={removeAllItems}>
+            Remove all
+          </span>
         </div>
-        <div className="cart-items"></div>
+        <div className="cart-items">
+          {items.map(item => {
+            return <p>{item.name}</p>;
+          })}
+        </div>
         <div className="cart-total">
           <span>Total</span>
           <span>

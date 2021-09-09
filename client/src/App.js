@@ -1,9 +1,7 @@
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import { useCartUpdate } from "./CartContext";
 import ScrollToTop from "./hooks/ScrollToTop";
-import { CartContext } from "./CartContext";
-
-import axios from "axios";
 
 import { ThemeProvider } from "styled-components";
 import theme from "./theme";
@@ -18,6 +16,12 @@ import { Wrapper } from "./components/shared/Wrapper.elements";
 import SingleItemPage from "./components/SingleItemPage/SingleItemPage";
 
 function App() {
+  const initializeCart = useCartUpdate();
+
+  useEffect(() => {
+    initializeCart(JSON.parse(localStorage.getItem("cart")) || []);
+  }, []);
+
   return (
     <div className="App">
       <Router>
