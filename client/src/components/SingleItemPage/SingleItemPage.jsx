@@ -88,6 +88,8 @@ export default function SingleItemPage() {
     const { id, name, price, image } = item;
     const itemToBeAdded = { id, name, price, image: image[2], quantity };
 
+    itemToBeAdded.name = name.substring(0, name.lastIndexOf(" "));
+
     // Update context, sync with local storage
     updateCart([...cartItems, itemToBeAdded]);
 
@@ -101,7 +103,6 @@ export default function SingleItemPage() {
     }
 
     setAddingItem(true);
-    console.log(cartItems);
     setQuantity(1);
     await delay(5000);
     setAddingItem(false);

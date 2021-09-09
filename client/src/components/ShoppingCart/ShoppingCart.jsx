@@ -1,7 +1,15 @@
 import React, { useState, useContext } from "react";
 import { useCart, useCartUpdate } from "../../CartContext";
 
-import { Container, CartIcon, Background, Main } from "./ShoppingCart.elements";
+import {
+  Container,
+  CartIcon,
+  Background,
+  Main,
+  Item
+} from "./ShoppingCart.elements";
+
+const baseUrl = process.env.BASE_URL || "http://localhost:1337";
 
 export default function ShoppingCart({
   toggleCartOpen,
@@ -37,7 +45,22 @@ export default function ShoppingCart({
         </div>
         <div className="cart-items">
           {items.map(item => {
-            return <p>{item.name}</p>;
+            return (
+              <Item>
+                <div className="item-main">
+                  <img src={`${baseUrl}${item.image.url}`} />
+                  <div>
+                    <p className="item-main__name">{item.name}</p>
+                    <p className="item-main__price">$ {item.price}</p>
+                  </div>
+                </div>
+                <div className="item-quantity">
+                  <button>-</button>
+                  <div className="item-quantity__quantity">{item.quantity}</div>
+                  <button>+</button>
+                </div>
+              </Item>
+            );
           })}
         </div>
         <div className="cart-total">

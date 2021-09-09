@@ -137,3 +137,63 @@ export const Main = styled.div`
     }
   }
 `;
+
+export const Item = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+
+  img {
+    height: 4rem;
+    width: 4rem;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    margin-right: 1rem;
+  }
+
+  .item-main {
+    display: flex;
+
+    div {
+      align-self: center;
+    }
+
+    &__name {
+      font-weight: bold;
+    }
+    &__price {
+      font-size: 0.875rem;
+      color: #808080;
+      font-weight: bold;
+    }
+  }
+
+  .item-quantity {
+    display: flex;
+    align-self: center;
+    height: 2rem;
+
+    > * {
+      background: #f1f1f1;
+    }
+
+    button {
+      height: auto;
+      width: auto;
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #bcbcbc;
+    }
+
+    &__quantity {
+      font-size: 0.8125rem;
+      font-weight: bold;
+      line-height: 2rem;
+      min-width: 1.25rem;
+      text-align: center;
+      user-select: none;
+    }
+  }
+`;
