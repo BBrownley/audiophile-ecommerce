@@ -6,14 +6,10 @@ import ScrollToTop from "./hooks/ScrollToTop";
 import { ThemeProvider } from "styled-components";
 import theme from "./theme";
 
-import Home from "./components/Home/Home";
-import Hero from "./components/Hero/Hero";
-import CategoryPage from "./components/CategoryPage/CategoryPage";
-
 import Header from "./components/Header/Header";
+import MainWrapper from "./components/MainWrapper/MainWrapper";
+import Hero from "./components/Hero/Hero";
 import Footer from "./components/Footer/Footer";
-import { Wrapper } from "./components/shared/Wrapper.elements";
-import SingleItemPage from "./components/SingleItemPage/SingleItemPage";
 
 function App() {
   const initializeCart = useCartUpdate();
@@ -33,17 +29,7 @@ function App() {
             <Hero />
           </Route>
 
-          <Wrapper>
-            <Route exact path="/">
-              <Home />
-            </Route>
-            <Route path={["/headphones", "/speakers", "/earphones"]}>
-              <CategoryPage />
-            </Route>
-            <Route path="/item/:itemId">
-              <SingleItemPage />
-            </Route>
-          </Wrapper>
+          <MainWrapper />
 
           <Footer />
         </ThemeProvider>

@@ -1,4 +1,5 @@
 import React, { useState, useContext } from "react";
+import { Link } from "react-router-dom";
 import { useCart, useCartUpdate } from "../../CartContext";
 
 import {
@@ -7,7 +8,8 @@ import {
   Background,
   Main,
   Item,
-  StyledCartItemLink
+  StyledCartItemLink,
+  StyledCheckoutBtn
 } from "./ShoppingCart.elements";
 
 const baseUrl = process.env.BASE_URL || "http://localhost:1337";
@@ -125,7 +127,9 @@ export default function ShoppingCart({
                 <strong>${sumItemTotal(items)}</strong>
               </span>
             </div>
-            <button>Checkout</button>
+            <StyledCheckoutBtn to="/checkout" onClick={handleClose}>
+              Checkout
+            </StyledCheckoutBtn>
           </>
         )}
         {items.length === 0 && <p>Cart empty</p>}

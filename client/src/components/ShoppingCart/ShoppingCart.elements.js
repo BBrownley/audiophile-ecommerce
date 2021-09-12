@@ -275,3 +275,18 @@ export const StyledCartItemLink = styled(Link)`
   text-decoration: none;
   color: black;
 `;
+
+export const StyledCheckoutBtn = styled(Link)`
+  width: 100%;
+  background: ${props => props.theme.colors.primary};
+  text-align: center;
+  height: 3rem;
+  line-height: 3rem;
+  text-decoration: none;
+  color: white;
+  margin-bottom: 0;
+  transition: 0.25s ease background-color;
+  &:hover {
+    background-color: #fbaf85;
+  }
+`;
