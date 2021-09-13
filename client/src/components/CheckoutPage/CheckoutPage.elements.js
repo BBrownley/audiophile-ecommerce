@@ -34,10 +34,3 @@ export const Main = styled.div`
     border-radius: 0.5rem;
   }
 `;
-
-export const PaymentInfo = styled.div`
-  padding: 3.25rem;
-`;
-
-export const FormSection = styled.div``;
-export const Summary = styled.div``;

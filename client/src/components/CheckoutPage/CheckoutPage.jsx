@@ -1,5 +1,8 @@
 import React from "react";
 
+import CheckoutForm from "../CheckoutForm/CheckoutForm";
+import CheckoutSummary from "../CheckoutSummary/CheckoutSummary";
+
 import {
   Container,
   HeaderBkg,
@@ -15,10 +18,8 @@ export default function CheckoutPage() {
       <HeaderBkg />
       <GoBack>Go Back</GoBack>
       <Main>
-        <PaymentInfo>
-          <h3>Checkout</h3>
-        </PaymentInfo>
-        <Summary></Summary>
+        <CheckoutForm />
+        <CheckoutSummary />
       </Main>
     </Container>
   );
