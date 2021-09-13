@@ -10,6 +10,8 @@ export default function CheckoutForm() {
     formState: { errors }
   } = useForm();
 
+  const [paymentMethod, setPaymentMethod] = useState("e-money");
+
   const onSubmit = data => console.log(data);
 
   return (
@@ -94,6 +96,54 @@ export default function CheckoutForm() {
               <input name="country" {...register("country")} />
             </Field>
           </div>
+        </FormSection>
+        <FormSection>
+          <p className="section-label">Payment details</p>
+
+          <Field paymentDetails>
+            <label for="paymentMethod">
+              <div className="field-header">
+                <p className="form-label">Payment method</p>
+              </div>
+            </label>
+            <div className="payment-methods">
+              <button
+                className={paymentMethod === "e-money" ? "selected" : ""}
+                onClick={() => setPaymentMethod("e-money")}
+              >
+                <div className="radio-circle"></div>
+                <span>e-Money</span>
+              </button>
+              <button
+                className={paymentMethod === "cash" ? "selected" : ""}
+                onClick={() => setPaymentMethod("cash")}
+              >
+                <div className="radio-circle"></div>
+                <span>Cash on Delivery</span>
+              </button>
+            </div>
+          </Field>
+
+          {paymentMethod === "e-money" && (
+            <div className="e-money-form">
+              <Field>
+                <label for="eMoneyNumber">
+                  <div className="field-header">
+                    <p className="form-label">e-Money Number</p>
+                  </div>
+                </label>
+                <input name="eMoneyNumber" {...register("eMoneyNumber")} />
+              </Field>
+              <Field>
+                <label for="eMoneyPin">
+                  <div className="field-header">
+                    <p className="form-label">e-Money PIN</p>
+                  </div>
+                </label>
+                <input name="eMoneyPin" {...register("eMoneyPin")} />
+              </Field>
+            </div>
+          )}
         </FormSection>
         {/* <input type="submit" /> */}
       </form>

@@ -18,7 +18,8 @@ export const FormSection = styled.div`
     letter-spacing: 0.93px;
   }
 
-  .fields {
+  .fields,
+  .e-money-form {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-column-gap: 1rem;
@@ -61,10 +62,68 @@ export const Field = styled.div`
     }
   }
 
+  .payment-methods {
+    display: flex;
+    flex-direction: column;
+    padding-left: .5rem;
+
+    button {
+      width: 100%;
+      height: 3.5rem;
+      background-color: transparent;
+      color: black;
+      text-align: left;
+      border: 1px solid #cfcfcf;
+      border-radius: 0.5rem;
+      text-transform: none;
+      letter-spacing: -0.25px;
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+
+      &:first-of-type {
+        margin-bottom: 1rem;
+      }
+      &:hover {
+        border: 1px solid ${props => props.theme.colors.primary};
+      }
+      &.selected {
+        border: 1px solid ${props => props.theme.colors.primary};
+        .radio-circle::after {
+          height: 10px;
+          width: 10px;
+          border-radius: 10px;
+          background: ${props => props.theme.colors.primary};
+          position: absolute;
+          content: " ";
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+        }
+      }
+
+      .radio-circle {
+        position: relative;
+        height: 20px;
+        width: 20px;
+        border: 1px solid #cfcfcf;
+        border-radius: 20px;
+        margin-right: 1rem;
+      }
+    }
+  }
+
   ${props => {
     if (props.fullwidth) {
       return css`
         grid-column: 1 / -1;
+      `;
+    }
+
+    if (props.paymentDetails) {
+      return css`
+        display: grid;
+        grid-template-columns: 1fr 1fr;
       `;
     }
   }}
