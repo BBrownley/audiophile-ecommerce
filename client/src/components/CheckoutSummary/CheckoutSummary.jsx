@@ -5,7 +5,7 @@ import { Container, ItemList, Item } from "./CheckoutSummary.elements";
 
 const baseUrl = process.env.BASE_URL || "http://localhost:1337";
 
-export default function CheckoutSummary() {
+export default function CheckoutSummary({ submitForm }) {
   const cartItems = useCart();
   const shippingCost = 50;
 
@@ -29,9 +29,11 @@ export default function CheckoutSummary() {
   };
 
   const sumGrandTotal = cart => {
-    const itemAndVAT_total = Math.round(cart.reduce((acc, item) => {
-      return acc + item.quantity * item.price * 1.2;
-    }, 0));
+    const itemAndVAT_total = Math.round(
+      cart.reduce((acc, item) => {
+        return acc + item.quantity * item.price * 1.2;
+      }, 0)
+    );
 
     const grandTotal = itemAndVAT_total + shippingCost;
     return grandTotal
@@ -82,7 +84,7 @@ export default function CheckoutSummary() {
         <span>$ {sumGrandTotal(cartItems)}</span>
       </p>
 
-      <button>Continue</button>
+      <input type="submit" form="checkout-form" value="Continue" />
     </Container>
   );
 }

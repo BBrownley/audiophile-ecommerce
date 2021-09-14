@@ -28,9 +28,19 @@ export const Main = styled.div`
   grid-template-columns: 3fr 1fr;
   grid-column-gap: 2rem;
   margin-top: 3rem;
+  padding-bottom: 7.5rem;
   > * {
     min-height: 3rem;
     background-color: white;
     border-radius: 0.5rem;
+  }
+
+  @media (max-width: 1200px) {
+    display: block;
+    > * {
+      &:first-of-type {
+        margin-bottom: 2rem;
+      }
+    }
   }
 `;

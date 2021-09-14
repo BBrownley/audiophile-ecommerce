@@ -25,6 +25,13 @@ export const FormSection = styled.div`
     grid-column-gap: 1rem;
     grid-row-gap: 0.5rem;
   }
+
+  @media (max-width: 665px) {
+    .fields,
+    .e-money-form {
+      grid-template-columns: 1fr;
+    }
+  }
 `;
 
 export const Field = styled.div`
@@ -65,7 +72,7 @@ export const Field = styled.div`
   .payment-methods {
     display: flex;
     flex-direction: column;
-    padding-left: .5rem;
+    padding-left: 0.5rem;
 
     button {
       width: 100%;
@@ -124,6 +131,14 @@ export const Field = styled.div`
       return css`
         display: grid;
         grid-template-columns: 1fr 1fr;
+
+        @media (max-width: 665px) {
+          grid-template-columns: 1fr;
+
+          .payment-methods {
+            padding-left: 0;
+          }
+        }
       `;
     }
   }}
