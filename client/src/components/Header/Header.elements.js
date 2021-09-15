@@ -66,6 +66,9 @@ export const Container = styled.div`
     @media (max-width: 400px) {
       padding: 1.5rem;
     }
+    @media (max-width: 340px) {
+      background: black;
+    }
     @media (max-width: 305px) {
       padding: 1rem 0.5rem;
     }
@@ -103,6 +106,11 @@ export const MobileHeader = styled.div`
   width: 100%;
   justify-content: space-between;
   align-items: center;
+
+  @media (max-width: 340px) {
+    margin-top: 4rem;
+    justify-content: center;
+  }
 `;
 
 export const MobileMenu = styled.div`
@@ -126,9 +134,11 @@ export const MobileMenu = styled.div`
   .mobile-menu-nav {
     margin: 0;
     margin-top: 3rem;
+
     .wrapper {
       border-bottom: none;
       padding: 0 2rem 2rem 2rem;
+      background: white;
       .category-nav__item {
         &__img {
           background-size: 70%;

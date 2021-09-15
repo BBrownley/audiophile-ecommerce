@@ -26,6 +26,7 @@ export const Container = styled.div`
       max-width: 400px;
       margin-left: 30%;
       transform: translateX(-50%);
+      padding: 0.5rem;
 
       .new-product {
         margin-top: 0;
@@ -63,5 +64,19 @@ export const Container = styled.div`
       url(${heroBkgMobile}) center;
     background-size: cover;
     padding-bottom: 133%;
+  }
+
+  @media (max-width: 440px) {
+    h1 {
+      line-height: inherit;
+      font-size: 2rem;
+    }
+  }
+
+  @media (max-width: 340px) {
+    margin-top: 3.75rem;
+    .wrapper {
+      top: 48%;
+    }
   }
 `;

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import { Container } from "./Hero.elements";
 
@@ -13,7 +14,9 @@ export default function Hero() {
             Experience natural, lifelike audio and exceptional build quality
             made for the passionate music enthusiast.
           </p>
-          <button>See product</button>
+          <Link to="/item/3">
+            <button>See product</button>
+          </Link>
         </div>
       </div>
     </Container>

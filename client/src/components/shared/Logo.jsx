@@ -7,6 +7,14 @@ const LogoEl = styled.div`
   background: url(${logo});
   height: 25px;
   width: 143px;
+
+  @media (max-width: 340px) {
+    &.navbar-logo {
+      position: absolute;
+      top: 2rem;
+      transform: translateX(-50%);
+    }
+  }
 `;
 
 export default function Logo({ className }) {

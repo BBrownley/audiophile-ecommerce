@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import { useCart } from "../../CartContext";
 import useScreenWidth from "../../hooks/useScreenWidth";
 import NavLinks from "../NavLinks/NavLinks";
@@ -48,7 +48,9 @@ export default function Header() {
           <>
             <HeaderLeft>
               <HamburgerIcon onClick={toggleMobileMenu} />
-              <Logo />
+              <Link to="/">
+                <Logo className="navbar-logo" />
+              </Link>
             </HeaderLeft>
 
             <NavLinks />
@@ -68,7 +70,9 @@ export default function Header() {
         {width <= 400 && (
           <MobileHeader>
             <HamburgerIcon onClick={toggleMobileMenu} />
-            <Logo />
+            <Link to="/">
+              <Logo className="navbar-logo" />
+            </Link>
             <div className="cart">
               <ShoppingCartIcon
                 toggleCartOpen={toggleCartOpen}
