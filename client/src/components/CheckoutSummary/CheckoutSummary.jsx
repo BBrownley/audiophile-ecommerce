@@ -84,7 +84,12 @@ export default function CheckoutSummary({ submitForm }) {
         <span>$ {sumGrandTotal(cartItems)}</span>
       </p>
 
-      <input type="submit" form="checkout-form" value="Continue" />
+      <input
+        type="submit"
+        form="checkout-form"
+        value={`Continue & pay`}
+        id="checkout-form-submit"
+      />
     </Container>
   );
 }

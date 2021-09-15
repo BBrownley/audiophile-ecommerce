@@ -12,6 +12,22 @@ export const Container = styled.div`
     margin-top: 1rem;
   }
 
+  #checkout-form-submit {
+    width: 100%;
+    background-color: ${props => props.theme.colors.primary};
+    border: none;
+    color: white;
+    height: 3rem;
+    font-family: inherit;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 1rem;
+    &:hover {
+      cursor: pointer;
+      background-color: #fbaf85;
+    }
+  }
+
   .order-detail {
     display: flex;
     justify-content: space-between;

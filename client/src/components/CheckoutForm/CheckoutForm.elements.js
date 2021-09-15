@@ -6,6 +6,15 @@ export const Container = styled.div`
   h3 {
     margin: 0;
   }
+
+  @media (max-width: 450px) {
+    padding: 1rem;
+  }
+
+  @media (max-width: 320px) {
+    padding: 1rem 0;
+    background: #f1f1f1;
+  }
 `;
 
 export const FormSection = styled.div`

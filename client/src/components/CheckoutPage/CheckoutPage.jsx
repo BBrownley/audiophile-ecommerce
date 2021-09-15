@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 
 import CheckoutForm from "../CheckoutForm/CheckoutForm";
 import CheckoutSummary from "../CheckoutSummary/CheckoutSummary";
+import CheckoutModal from "../CheckoutModal/CheckoutModal";
 
 import {
   Container,
@@ -21,8 +22,10 @@ export default function CheckoutPage() {
   } = useForm();
 
   const onSubmit = data => {
-    console.log(data);
+    setCheckoutComplete(true);
   };
+
+  const [checkoutComplete, setCheckoutComplete] = useState(true);
 
   return (
     <Container>
@@ -37,6 +40,9 @@ export default function CheckoutPage() {
         />
         <CheckoutSummary submitForm={onSubmit} />
       </Main>
+      {checkoutComplete && (
+        <CheckoutModal setCheckoutComplete={setCheckoutComplete} />
+      )}
     </Container>
   );
 }

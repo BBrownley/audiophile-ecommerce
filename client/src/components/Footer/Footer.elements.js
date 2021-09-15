@@ -89,6 +89,7 @@ export const Container = styled.div`
     }
     .footer-bottom__tablet {
       flex-direction: column;
+      text-align: center;
       .socials {
         margin-top: 2rem;
       }
