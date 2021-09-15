@@ -25,7 +25,7 @@ export default function CheckoutPage() {
     setCheckoutComplete(true);
   };
 
-  const [checkoutComplete, setCheckoutComplete] = useState(true);
+  const [checkoutComplete, setCheckoutComplete] = useState(false);
 
   return (
     <Container>

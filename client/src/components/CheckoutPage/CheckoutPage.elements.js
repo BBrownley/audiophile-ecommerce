@@ -31,7 +31,6 @@ export const Main = styled.div`
   padding-bottom: 7.5rem;
   > * {
     min-height: 3rem;
-    background-color: white;
     border-radius: 0.5rem;
   }
 

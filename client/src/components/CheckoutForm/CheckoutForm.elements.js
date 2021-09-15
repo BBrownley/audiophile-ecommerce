@@ -2,6 +2,7 @@ import styled, { css } from "styled-components";
 
 export const Container = styled.div`
   padding: 3.25rem;
+  background: white;
 
   h3 {
     margin: 0;
@@ -11,10 +12,15 @@ export const Container = styled.div`
     padding: 1rem;
   }
 
-  @media (max-width: 320px) {
+  @media (max-width: 370px) {
+    padding: 0;
+    background: transparent;
+  }
+
+  /* @media (max-width: 320px) {
     padding: 1rem 0;
     background: #f1f1f1;
-  }
+  } */
 `;
 
 export const FormSection = styled.div`

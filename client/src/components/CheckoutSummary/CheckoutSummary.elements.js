@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   padding: 2rem;
+  background: white;
 
   h6 {
     margin: 0;

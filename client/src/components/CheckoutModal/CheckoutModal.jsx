@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { useCart } from "../../CartContext";
+import { useCart, useCartUpdate } from "../../CartContext";
 import { sumGrandTotal } from "../../helpers/sumGrandTotal";
 import check from "../../assets/checkmark.png";
 
@@ -17,10 +17,14 @@ export default function CheckoutModal({
   const [showMore, setShowMore] = useState(true);
 
   const cartItems = useCart();
+  const updateCart = useCartUpdate();
+
   const grandTotal = sumGrandTotal(cartItems);
 
   const handleCompleteCheckout = () => {
     setCheckoutComplete(false);
+    updateCart([]);
+    localStorage.setItem("cart", JSON.stringify([]));
   };
 
   return (
@@ -58,31 +62,34 @@ export default function CheckoutModal({
                 );
               })}
             {showMore && (
-              <div className="view-less-more" onClick={() => setShowMore(false)}>
+              <div
+                className="view-less-more"
+                onClick={() => setShowMore(false)}
+              >
                 View less
               </div>
             )}
-            {!showMore &&
+            {!showMore && (
               <Item>
-              <div className="item-detail-primary">
-                <img
-                  src={`${baseUrl}${cartItems[0].image.url}`}
-                  alt={`${cartItems[0].name}`}
-                />
-                <div>
-                  <p className="item-detail-primary__name">
-                    {cartItems[0].name}
-                  </p>
-                  <p className="item-detail-primary__price">
-                    $ {cartItems[0].price}
-                  </p>
+                <div className="item-detail-primary">
+                  <img
+                    src={`${baseUrl}${cartItems[0].image.url}`}
+                    alt={`${cartItems[0].name}`}
+                  />
+                  <div>
+                    <p className="item-detail-primary__name">
+                      {cartItems[0].name}
+                    </p>
+                    <p className="item-detail-primary__price">
+                      $ {cartItems[0].price}
+                    </p>
+                  </div>
                 </div>
-              </div>
-              <div className="item-quantity">
-                <span>x{cartItems[0].quantity}</span>
-              </div>
-            </Item>
-            }
+                <div className="item-quantity">
+                  <span>x{cartItems[0].quantity}</span>
+                </div>
+              </Item>
+            )}
             {!showMore && (
               <div className="view-less-more" onClick={() => setShowMore(true)}>
                 and {cartItems.length - 1} other item(s)
