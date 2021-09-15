@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import { useHistory } from "react-router-dom";
+
+import { useCart } from "../../CartContext";
 
 import CheckoutForm from "../CheckoutForm/CheckoutForm";
 import CheckoutSummary from "../CheckoutSummary/CheckoutSummary";
@@ -15,11 +18,15 @@ import {
 } from "./CheckoutPage.elements";
 
 export default function CheckoutPage() {
+  const cartItems = useCart();
+
   const {
     register,
     handleSubmit,
     formState: { errors }
   } = useForm();
+
+  const history = useHistory();
 
   const onSubmit = data => {
     setCheckoutComplete(true);
@@ -27,10 +34,14 @@ export default function CheckoutPage() {
 
   const [checkoutComplete, setCheckoutComplete] = useState(false);
 
+  if (cartItems.length === 0) {
+    history.goBack();
+  }
+
   return (
     <Container>
       <HeaderBkg />
-      <GoBack>Go Back</GoBack>
+      <GoBack onClick={() => history.goBack()}>Go Back</GoBack>
       <Main>
         <CheckoutForm
           register={register}

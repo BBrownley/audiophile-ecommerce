@@ -1,13 +1,14 @@
 import React from "react";
 import { Wrapper } from "../shared/Wrapper.elements";
 
-import { Route, useLocation } from "react-router-dom";
+import { Route, useLocation, Switch } from "react-router-dom";
 
 import Home from "../Home/Home";
 import CategoryPage from "../CategoryPage/CategoryPage";
 
 import SingleItemPage from "../SingleItemPage/SingleItemPage";
 import CheckoutPage from "../CheckoutPage/CheckoutPage";
+import NotFound from "../NotFound/NotFound";
 
 export default function MainWrapper() {
   const location = useLocation();
@@ -20,18 +21,23 @@ export default function MainWrapper() {
   return (
     <Wrapper style={location.pathname === "/checkout" ? checkoutStyles : {}}>
       <div>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route path={["/headphones", "/speakers", "/earphones"]}>
-          <CategoryPage />
-        </Route>
-        <Route path="/item/:itemId">
-          <SingleItemPage />
-        </Route>
-        <Route path="/checkout">
-          <CheckoutPage />
-        </Route>
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path={["/headphones", "/speakers", "/earphones"]}>
+            <CategoryPage />
+          </Route>
+          <Route path="/item/:itemId">
+            <SingleItemPage />
+          </Route>
+          <Route path="/checkout">
+            <CheckoutPage />
+          </Route>
+          <Route exact path="*">
+            <NotFound />
+          </Route>
+        </Switch>
       </div>
     </Wrapper>
   );
