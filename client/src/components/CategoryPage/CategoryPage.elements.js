@@ -3,6 +3,10 @@ import ScaleLoader from "react-spinners/ScaleLoader";
 
 export const Container = styled.div`
   min-height: 100vh;
+
+  @media (max-width: 340px) {
+    margin-top: 4rem;
+  }
 `;
 
 export const CategoryHeader = styled.div`

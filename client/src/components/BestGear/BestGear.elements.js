@@ -67,6 +67,9 @@ export const Container = styled.div`
       }
     }
   }
+  @media (max-width: 660px) {
+    margin-top: 10rem;
+  }
   @media (max-width: 630px) {
     margin-bottom: 7.5rem;
     .img-wrapper {

@@ -34,7 +34,6 @@ export default function CategoryPage() {
     }
 
     const updateItems = async category => {
-      console.log("fetching data...");
       setItems([]);
       setLoading(true);
       await timeout(1000);

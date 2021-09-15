@@ -78,6 +78,7 @@ export const Container = styled.div`
   }
   @media (max-width: 660px) {
     height: 630px;
+    margin: 10rem auto 0 auto;
     .wrapper {
       flex-direction: column;
       justify-content: space-between;
