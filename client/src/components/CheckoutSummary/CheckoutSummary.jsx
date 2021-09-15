@@ -45,9 +45,9 @@ export default function CheckoutSummary({ submitForm }) {
     <Container>
       <h6>Summary</h6>
       <ItemList>
-        {cartItems.map(cartItem => {
+        {cartItems.map((cartItem, index) => {
           return (
-            <Item>
+            <Item key={index}>
               <div className="item-detail-primary">
                 <img
                   src={`${baseUrl}${cartItem.image.url}`}

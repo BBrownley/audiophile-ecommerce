@@ -82,7 +82,7 @@ export default function ShoppingCart({
             <div className="cart-items">
               {items.map((item, index) => {
                 return (
-                  <Item>
+                  <Item key={index}>
                     <div className="item-main">
                       <img src={`${baseUrl}${item.image.url}`} />
                       <div>

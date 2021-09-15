@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
 
@@ -34,9 +34,11 @@ export default function CheckoutPage() {
 
   const [checkoutComplete, setCheckoutComplete] = useState(false);
 
-  if (cartItems.length === 0) {
-    history.goBack();
-  }
+  useEffect(() => {
+    if (cartItems.length === 0) {
+      history.goBack();
+    }
+  }, []);
 
   return (
     <Container>

@@ -10,16 +10,6 @@ export default function CheckoutForm({
 }) {
   const [paymentMethod, setPaymentMethod] = useState("e-money");
 
-  // return (
-  //   <form onSubmit={handleSubmit(onSubmit)}>
-  //     <label htmlFor="name">Name</label>
-  //     <input id="name" {...register('name', { required: true, maxLength: 30 })} />
-  //     {errors.name && errors.name.type === "required" && <span>This is required</span>}
-  //     {errors.name && errors.name.type === "maxLength" && <span>Max length exceeded</span> }
-  //     <input type="submit" />
-  //   </form>
-  // );
-
   return (
     <Container>
       <h3>Checkout</h3>
@@ -28,7 +18,7 @@ export default function CheckoutForm({
           <p className="section-label">Billing details</p>
           <div className="fields">
             <Field>
-              <label for="name">
+              <label htmlFor="name">
                 <div className="field-header">
                   <p className="form-label">Name</p>
                   {errors.name && errors.name.type === "required" && (
@@ -39,7 +29,7 @@ export default function CheckoutForm({
               <input name="name" {...register("name", { required: true })} />
             </Field>
             <Field>
-              <label for="email">
+              <label htmlFor="email">
                 <div className="field-header">
                   <p className="form-label">Email Address</p>
                   {errors.email && errors.email.type === "pattern" && (
@@ -59,7 +49,7 @@ export default function CheckoutForm({
               />
             </Field>
             <Field>
-              <label for="phoneNumber">
+              <label htmlFor="phoneNumber">
                 <div className="field-header">
                   <p className="form-label">Phone Number</p>
                   {errors.phoneNumber &&
@@ -86,7 +76,7 @@ export default function CheckoutForm({
           <p className="section-label">Shipping info</p>
           <div className="fields">
             <Field fullwidth>
-              <label for="address">
+              <label htmlFor="address">
                 <div className="field-header">
                   <p className="form-label">Address</p>
                   {errors.address && errors.address.type === "required" && (
@@ -100,7 +90,7 @@ export default function CheckoutForm({
               />
             </Field>
             <Field>
-              <label for="zipcode">
+              <label htmlFor="zipcode">
                 <div className="field-header">
                   <p className="form-label">ZIP code</p>
 
@@ -121,7 +111,7 @@ export default function CheckoutForm({
               />
             </Field>
             <Field>
-              <label for="city">
+              <label htmlFor="city">
                 <div className="field-header">
                   <p className="form-label">City</p>
                   {errors.city && errors.city.type === "required" && (
@@ -132,7 +122,7 @@ export default function CheckoutForm({
               <input name="city" {...register("city", { required: true })} />
             </Field>
             <Field>
-              <label for="country">
+              <label htmlFor="country">
                 <div className="field-header">
                   <p className="form-label">Country</p>
                   {errors.country && errors.country.type === "required" && (
@@ -151,7 +141,7 @@ export default function CheckoutForm({
           <p className="section-label">Payment details</p>
 
           <Field paymentDetails>
-            <label for="paymentMethod">
+            <label htmlFor="paymentMethod">
               <div className="field-header">
                 <p className="form-label">Payment method</p>
               </div>
@@ -177,7 +167,7 @@ export default function CheckoutForm({
           {paymentMethod === "e-money" && (
             <div className="e-money-form">
               <Field>
-                <label for="eMoneyNumber">
+                <label htmlFor="eMoneyNumber">
                   <div className="field-header">
                     <p className="form-label">e-Money Number</p>
                     {errors.eMoneyNumber &&
@@ -194,7 +184,7 @@ export default function CheckoutForm({
                 />
               </Field>
               <Field>
-                <label for="eMoneyPin">
+                <label htmlFor="eMoneyPin">
                   <div className="field-header">
                     <p className="form-label">e-Money PIN</p>
                     {errors.eMoneyPin &&
