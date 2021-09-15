@@ -44,6 +44,9 @@ export const Container = styled.div`
       height: 5.625rem;
     }
   }
+  @media (max-width: 340px) {
+    margin-top: 3.75rem;
+  }
 `;
 export const GoBack = styled.div`
   margin-top: 5rem;
@@ -70,6 +73,11 @@ export const Main = styled.div`
   align-items: center;
   @media (max-width: 725px) {
     flex-direction: column;
+  }
+  @media (max-width: 400px) {
+    .product-details-wrapper {
+      width: 95%;
+    }
   }
 `;
 export const ProductImg = styled.img`
@@ -174,8 +182,13 @@ export const Quantity = styled.div`
   }
 
   @media (max-width: 375px) {
+    flex-direction: column;
     .add-to-cart {
       width: auto;
+      margin-top: 2rem;
+      &__btn {
+        width: 100%;
+      }
     }
   }
 `;
@@ -206,5 +219,10 @@ export const Counter = styled.div`
       cursor: default;
       user-select: none;
     }
+  }
+
+  @media (max-width: 375px) {
+    margin-right: 0;
+    width: 100%;
   }
 `;

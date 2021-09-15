@@ -137,7 +137,7 @@ export default function SingleItemPage() {
           })()}
           alt={item.name}
         />
-        <div>
+        <div className="product-details-wrapper">
           <ProductDetails>
             <h2 className="item-name">{item.name || <Skeleton />}</h2>
             <p>{item.description || <Skeleton count={3} />}</p>

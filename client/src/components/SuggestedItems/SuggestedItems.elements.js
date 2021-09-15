@@ -10,6 +10,10 @@ export const Container = styled.div`
       font-size: 1.5rem;
     }
   }
+
+  @media (max-width: 660px) {
+    margin-bottom: 10rem;
+  }
 `;
 
 export const Items = styled.div`
@@ -47,7 +51,7 @@ export const Item = styled.div`
     width: auto;
     max-width: 350px;
     height: 400px;
-    border-radius: .5rem;
+    border-radius: 0.5rem;
   }
 
   @media (max-width: 1200px) {
