@@ -12,7 +12,7 @@ import {
   StyledCheckoutBtn
 } from "./ShoppingCart.elements";
 
-const baseUrl = process.env.BASE_URL || "http://localhost:1337";
+import apiService from "../../apiService";
 
 export default function ShoppingCart({
   toggleCartOpen,
@@ -84,7 +84,7 @@ export default function ShoppingCart({
                 return (
                   <Item key={index}>
                     <div className="item-main">
-                      <img src={`${baseUrl}${item.image.url}`} />
+                      <img src={`${apiService.baseUrl}${item.image.url}`} />
                       <div>
                         <StyledCartItemLink
                           to={`/item/${item.id}`}

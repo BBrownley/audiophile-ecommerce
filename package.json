@@ -4,7 +4,8 @@
   "description": "\"# audiophile-ecommerce\"",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "cd cms && npm run strapi"
   },
   "repository": {
     "type": "git",

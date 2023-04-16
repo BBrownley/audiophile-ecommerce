@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import { useCart } from "../../CartContext";
 
 import { Container, ItemList, Item } from "./CheckoutSummary.elements";
-
-const baseUrl = process.env.BASE_URL || "http://localhost:1337";
+import apiService from "../../apiService";
 
 export default function CheckoutSummary({ submitForm }) {
   const cartItems = useCart();
@@ -50,7 +49,7 @@ export default function CheckoutSummary({ submitForm }) {
             <Item key={index}>
               <div className="item-detail-primary">
                 <img
-                  src={`${baseUrl}${cartItem.image.url}`}
+                  src={`${apiService.baseUrl}${cartItem.image.url}`}
                   alt={`${cartItem.name}`}
                 />
                 <div>

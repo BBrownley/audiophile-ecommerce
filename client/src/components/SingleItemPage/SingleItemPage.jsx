@@ -26,8 +26,6 @@ import Gallery from "../Gallery/Gallery";
 import Skeleton from "react-loading-skeleton";
 import SuggestedItems from "../SuggestedItems/SuggestedItems";
 
-const baseUrl = process.env.BASE_URL || "http://localhost:1337";
-
 const defaultItemState = {
   name: null,
   category: null,
@@ -114,9 +112,11 @@ export default function SingleItemPage() {
       const { mobileImgUrl, tabletImgUrl, desktopImgUrl } = parseImgFileName(
         itemImages
       );
-      setMobileImgUrl(mobileImgUrl);
-      setTabletImgUrl(tabletImgUrl);
-      setDesktopImgUrl(desktopImgUrl);
+      setMobileImgUrl(`${apiService.baseUrl}${mobileImgUrl}`);
+      setTabletImgUrl(`${apiService.baseUrl}${tabletImgUrl}`);
+      setDesktopImgUrl(`${apiService.baseUrl}${desktopImgUrl}`);
+
+      console.log(`${apiService.baseUrl}/${mobileImgUrl}`);
     }
   }, [item]);
 
@@ -128,11 +128,11 @@ export default function SingleItemPage() {
         <ProductImg
           src={(() => {
             if (width > 1100) {
-              return `${baseUrl}${desktopImgUrl}`;
+              return `${desktopImgUrl}`;
             } else if (width > 725) {
-              return `${baseUrl}${tabletImgUrl}`;
+              return `${tabletImgUrl}`;
             } else {
-              return `${baseUrl}${mobileImgUrl}`;
+              return `${mobileImgUrl}`;
             }
           })()}
           alt={item.name}

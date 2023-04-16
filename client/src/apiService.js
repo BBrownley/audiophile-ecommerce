@@ -1,5 +1,7 @@
 import axios from "axios";
 
+const production = true;
+
 const baseUrl = "http://localhost:1337";
 
 // Get all items belonging to a category
@@ -37,7 +39,8 @@ const getSuggestedItems = async (category, currentItemId) => {
 const apiService = {
   getAllFromCategory,
   getItemById,
-  getSuggestedItems
+  getSuggestedItems,
+  baseUrl
 };
 
 export default apiService;
